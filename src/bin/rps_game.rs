@@ -1,5 +1,5 @@
 use std::io;
-use rand::Rng;
+use rand::RngExt;
 
 fn main() {
     println!("가위, 바위, 보... 게임 시작");
@@ -13,7 +13,7 @@ fn main() {
             let mut input = String::new();
             io::stdin().read_line(&mut input).expect("읽기 실패...");
 
-            let computer_number = rand::thread_rng().gen_range(1..=3);
+            let computer_number = rand::rng().random_range(1..=3);
 
             let input: i8 = match input.trim().parse() {
                 Ok(num) => num,
